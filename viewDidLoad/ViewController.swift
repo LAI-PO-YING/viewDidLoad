@@ -23,6 +23,7 @@ class ViewController: UIViewController {
             return SKSpriteNode(texture: SKTexture(image: bgImage!))
         }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
