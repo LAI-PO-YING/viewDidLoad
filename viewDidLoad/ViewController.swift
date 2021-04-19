@@ -7,18 +7,46 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    let player = AVPlayer()
+    func layerToSKSpriteNode(layer : CALayer) -> SKSpriteNode
+        {
+            let view = UIView()
+            view.layer.addSublayer(layer)
+            UIGraphicsBeginImageContext(layer.frame.size)
+            view.layer.render(in: UIGraphicsGetCurrentContext()!)
+            let bgImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return SKSpriteNode(texture: SKTexture(image: bgImage!))
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        // 漸層背景
+        // 背景音樂製作
+        let fileUrl = Bundle.main.url(forResource: "backgroundMusic", withExtension: "mp4")!
+        let playerItem = AVPlayerItem(url: fileUrl)
+        player.replaceCurrentItem(with: playerItem)
+        player.play()
+        
+        // 漸層背景＋火焰
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.black.cgColor, UIColor(red: 177/255, green: 17/255, blue: 22/255, alpha: 1).cgColor]
         gradientLayer.locations = [0.5, 0.9]
-        view.layer.addSublayer(gradientLayer)
+        let gradientNode = layerToSKSpriteNode(layer: gradientLayer)
+        gradientNode.anchorPoint = CGPoint(x: 0.05, y: 0.43)
+        let emitterNode = SKEmitterNode(fileNamed: "MyFireParticle")
+        let skView = SKView(frame: view.frame)
+        view.insertSubview(skView, at: 0)
+        let scene = SKScene(size: skView.frame.size)
+        scene.anchorPoint = CGPoint(x: 0.05, y: 0.43)
+        scene.addChild(gradientNode)
+        scene.addChild(emitterNode!)
+        skView.presentScene(scene)
         
         // 外圓繪製
         let logoView = UIView()
@@ -110,16 +138,6 @@ class ViewController: UIViewController {
         view.addSubview(fireImageView)
         fireImageView.frame = logoView.bounds
         fireImageView.mask = logoView
-        
-        //火焰
-        let skView = SKView(frame: view.frame)
-        view.insertSubview(skView, at: 0)
-        let scene = SKScene(size: skView.frame.size)
-        scene.anchorPoint = CGPoint(x: 0.2, y: 0.2)
-        let emitterNode = SKEmitterNode(fileNamed: "MyFireParticle")
-        scene.addChild(emitterNode!)
-        skView.presentScene(scene)
-        
 
         // HungerGames label
         let hungerGamesLabel = UILabel()

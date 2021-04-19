@@ -14,6 +14,7 @@
 		CE304ACD26297D19009E8C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE304ACC26297D19009E8C32 /* Assets.xcassets */; };
 		CE304AD026297D19009E8C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE304ACE26297D19009E8C32 /* LaunchScreen.storyboard */; };
 		CE3CD33C2629EE8800E89C79 /* MyFireParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE3CD33B2629EE8800E89C79 /* MyFireParticle.sks */; };
+		CEB032D6262D1DCC003A0D8F /* backgroundMusic.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CEB032D5262D1DCC003A0D8F /* backgroundMusic.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CE304ACF26297D19009E8C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE304AD126297D19009E8C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3CD33B2629EE8800E89C79 /* MyFireParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyFireParticle.sks; sourceTree = "<group>"; };
+		CEB032D5262D1DCC003A0D8F /* backgroundMusic.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundMusic.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		CE304AC226297D17009E8C32 /* viewDidLoad */ = {
 			isa = PBXGroup;
 			children = (
+				CEB032D5262D1DCC003A0D8F /* backgroundMusic.mp4 */,
 				CE304AC326297D17009E8C32 /* AppDelegate.swift */,
 				CE304AC526297D17009E8C32 /* SceneDelegate.swift */,
 				CE304AC726297D17009E8C32 /* ViewController.swift */,
@@ -129,6 +132,7 @@
 			files = (
 				CE304AD026297D19009E8C32 /* LaunchScreen.storyboard in Resources */,
 				CE3CD33C2629EE8800E89C79 /* MyFireParticle.sks in Resources */,
+				CEB032D6262D1DCC003A0D8F /* backgroundMusic.mp4 in Resources */,
 				CE304ACD26297D19009E8C32 /* Assets.xcassets in Resources */,
 				CE304ACB26297D17009E8C32 /* Main.storyboard in Resources */,
 			);
